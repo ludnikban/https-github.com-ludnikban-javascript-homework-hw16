@@ -10,11 +10,16 @@ console.log('Sample JavaScript #2 HW #16');
  * lastName – любая фамилия, строка
  * age – любой возраст, число
  */
+
 var userObj = {
   firstName : 'Bryan',
   lastName : 'Cranston',
-  age : 64
-}
+  age : 64,
+  fullName() {
+    return userObj.firstName + ' ' + userObj.lastName;
+  } 
+};
+
 console.log(userObj);
 /*
  * #2
@@ -27,9 +32,8 @@ console.log(userObj);
  * userObj.lastName ← Фамилия'
  * userObj.fullName() → 'Имя Фамилия'.
  */
-  function fullName() {return userObj.firstName + ' '+ userObj.lastName};
-  userObj.fullName = fullName()
-  console.log(userObj);
+  
+  console.log(userObj.fullName());
  /*
  * #3
  *
@@ -66,7 +70,7 @@ console.log(defUpperStr()); // DEFAULT TEXT
  * evenFn(20) → [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
  */
 function evenFn(n) {
-    let array =[];
+    array =[];
     for (var i = 1; i <= n; i++) {
     y=(i/2).toFixed(1);
     if (y.charAt(y.length-1)==='0') array.push(i);
@@ -148,10 +152,16 @@ console.log(weekFn('2'));
  * При выполнении задания допускается использовать только тернарный оператор ?.
  * Использование операторов if, switch – запрещено.
  */
+
+// return n <=122 ? n < 90 ?  n <75 ? n < 65 ?  n < 44 ?  n < 24 ?  n < 0 ? null : 'детский возраст' : 'молодой возраст' : 'средний возраст' : 'пожилой возраст' : 'старческий возраст' : 'долгожители' : null;  
 function ageClassification(n) {
- n < 0 ? age = null : n < 24 ? age = 'детский возраст' : n <44 ? age = 'молодой возраст' : n < 65 ? age = 'средний возраст' : n < 75 ? age = 'пожилой возраст' : n < 90 ? age = 'старческий возраст' : n <= 122 ? age = 'долгожители' : age = null;
-  return age;
+return n > 0 ? n > 24 ? n > 44 ? n > 65 ? n > 75 ? n > 90 ? n > 122 ? null : 'долгожители' : 'старческий возраст' : 'пожилой возраст' : 'средний возраст' : 'молодой возраст' : 'детский возраст' : null; 
 }
+
+// function ageClassification(num) { 
+// return num > 0 ? num > 24 ? num > 44 ? num > 65 ? num > 75 ? num > 90 ? num > 122 ? null : 'долгожители' : 'старческий возраст' : 'пожилой возраст' : 'средний возраст' : 'молодой возраст' : 'детский возраст' : null;
+// }
+
 console.log('-1 :', ageClassification(-1));
 console.log('5 :', ageClassification(5)); 
 console.log('34 :', ageClassification(34)); 
@@ -213,8 +223,8 @@ console.log('130 :', ageClassification(130));
  * oddFn(20) → [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  */
 function oddFn(n) {
-  let array = [];
-  let i = 0;
+  array = [];
+  i = 0;
   while (i <= n) {
   if (i % 2 !== 0) array.push(i);
   i++;
